@@ -3,6 +3,8 @@ package sample;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
@@ -32,11 +34,11 @@ public class Main extends Application {
         addressBar.setMinWidth(width-200);
         addressBar.setOnAction(this::processAddressBar);
 
-
         bookmarkDropdown = new ChoiceBox<>();
         bookmarkDropdown.setStyle("-fx-font: 24px \"Courrier\";");
         bookmarkDropdown.getItems().addAll(bookmarks);
         bookmarkDropdown.getSelectionModel().select(0);
+        bookmarkDropdown.setOnAction(this:: processBookmarkDropdown);
 
         viewer = new WebView();
         viewer.setMinSize(1000, 750); // width then height
@@ -64,6 +66,15 @@ public class Main extends Application {
         address = addressBar.getText();
         //System.out.println(address);
         viewer.getEngine().load(address);
+    }
+
+    public void processBookmarkDropdown(ActionEvent e){
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                "You are about to visit " + bookmarkDropdown.getValue() ,
+                ButtonType.OK);
+        alert.showAndWait();
+
     }
 
 
