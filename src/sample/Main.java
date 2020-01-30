@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -20,6 +21,7 @@ public class Main extends Application {
     WebView viewer;
 
     String[] bookmarks = {"UNB", "Google", "Bing"};
+    String address;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -28,6 +30,8 @@ public class Main extends Application {
         addressBar = new TextField();
         addressBar.setFont(mainFont);
         addressBar.setMinWidth(width-200);
+        addressBar.setOnAction(this::processAddressBar);
+
 
         bookmarkDropdown = new ChoiceBox<>();
         bookmarkDropdown.setStyle("-fx-font: 24px \"Courrier\";");
@@ -42,15 +46,24 @@ public class Main extends Application {
                 if (newState == Worker.State.SUCCEEDED) {
                     String location = viewer.getEngine().getLocation();
                     // add the line of code here, to put this location String in your TextField
+                    //System.out.println(location);
+                    addressBar.setText(location);
                 }
             }
         } );
 
-        FlowPane pane = new FlowPane(addressBar, bookmarkDropdown);
+        FlowPane pane = new FlowPane(addressBar, bookmarkDropdown, viewer);
         Scene scene = new Scene(pane, width, height);
         primaryStage.setTitle("Simple Web Browser");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    public void processAddressBar(ActionEvent event)
+    {
+        address = addressBar.getText();
+        //System.out.println(address);
+        viewer.getEngine().load(address);
     }
 
 
