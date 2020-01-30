@@ -47,8 +47,6 @@ public class Main extends Application {
             public void changed(ObservableValue ov, State oldState, State newState) {
                 if (newState == Worker.State.SUCCEEDED) {
                     String location = viewer.getEngine().getLocation();
-                    // add the line of code here, to put this location String in your TextField
-                    //System.out.println(location);
                     addressBar.setText(location);
                 }
             }
@@ -64,8 +62,8 @@ public class Main extends Application {
     public void processAddressBar(ActionEvent event)
     {
         address = addressBar.getText();
-        //System.out.println(address);
         viewer.getEngine().load(address);
+        //System.out.println(address);
     }
 
     public void processBookmarkDropdown(ActionEvent e){
