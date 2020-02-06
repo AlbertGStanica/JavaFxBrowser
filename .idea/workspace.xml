@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFxBrowser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFxBrowser.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/browser/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,6 +66,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1X7hIJCJtj3pdXZs5H1EwUMUef6" />
@@ -71,31 +74,36 @@
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="OverrideImplement.combined" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="OverrideImplement.combined" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="recentsLimit" value="5" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -108,19 +116,13 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <option name="MAIN_CLASS_NAME" value="browser.Main" />
       <module name="JavaFxBrowser" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../Java/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml,javafx.web" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="browser.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -168,6 +170,18 @@
       </method>
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -179,27 +193,105 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
+      <workItem from="1580404207477" duration="2566000" />
+      <workItem from="1581006666487" duration="88000" />
     </task>
+    <task id="LOCAL-00001" summary="Added initial code to Main.java">
+      <created>1580404322436</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580404322436</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added .gitignore">
+      <created>1580404500827</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580404500827</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added WebView">
+      <created>1580405811882</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580405811882</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cleaned up code">
+      <created>1580406893971</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580406893971</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1302000" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="Added initial code to Main.java" />
+    <MESSAGE value="Added .gitignore" />
+    <MESSAGE value="Added WebView" />
+    <MESSAGE value="Cleaned up code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up code" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580404251646">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741@67.27.1299.741" timestamp="1580404251646" />
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580406756974">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1299.741@67.27.1299.741" timestamp="1580406756974" />
+    <state x="268" y="27" width="886" height="741" key="CommitChangelistDialog2" timestamp="1580406893850">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="268" y="27" width="886" height="741" key="CommitChangelistDialog2/67.27.1299.741@67.27.1299.741" timestamp="1580406893850" />
+    <state x="338" y="141" width="735" height="513" key="FileChooserDialogImpl" timestamp="1580404893563">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="338" y="141" width="735" height="513" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1580404893563" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1580406904964">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1580406904964" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1580406904963">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1580406904963" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1580406904962">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1580406904962" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1580406904963">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1580406904963" />
+    <state x="187" y="85" width="1039" height="622" key="MergeDialog" timestamp="1580406559546">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="187" y="85" width="1039" height="622" key="MergeDialog/67.27.1299.741@67.27.1299.741" timestamp="1580406559546" />
+    <state x="421" y="114" width="580" height="564" key="MultipleFileMergeDialog" timestamp="1580406564289">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="421" y="114" width="580" height="564" key="MultipleFileMergeDialog/67.27.1299.741@67.27.1299.741" timestamp="1580406564289" />
+    <state x="199" y="27" width="1024" height="741" key="SettingsEditor" timestamp="1580404230375">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="199" y="27" width="1024" height="741" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1580404230375" />
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1580406895435">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1299.741@67.27.1299.741" timestamp="1580406895435" />
+    <state x="484" y="316" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580406546385">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="484" y="316" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1580406546385" />
   </component>
 </project>

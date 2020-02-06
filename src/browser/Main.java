@@ -1,4 +1,4 @@
-package sample;
+package browser;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
