@@ -14,6 +14,8 @@ import javafx.beans.value.*;
 import javafx.concurrent.*;
 import javafx.concurrent.Worker.*;
 
+import java.util.Optional;
+
 public class Main extends Application {
     final int width = 1000, height = 800;
 
@@ -73,24 +75,27 @@ public class Main extends Application {
     public void processAddressBar(ActionEvent event)
     {
         address = addressBar.getText();
-        bookmarkDropdown.getItems().addAll(bookmarks.getIDArray());
         viewer.getEngine().load(address);
     }
 
     public void processBookmarkButton(ActionEvent event){
-        addressBar.getText();
-        bookmarks.addBookmark(new Bookmark("ID", addressBar.getText()));
-        bookmarks.getIDArray();
+        String id = "";
 
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Add a bookmark");
+        dialog.setHeaderText("Enter bookmark ID");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent())
+        {
+            String input = dialog.getEditor().getText();
+            id = input;
+        }
+
+        bookmarks.addBookmark(new Bookmark(id, addressBar.getText()));
+        bookmarkDropdown.getItems().add(id);
     }
 
     public void processBookmarkDropdown(ActionEvent e){
-
-       /* Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                "You are about to visit " + bookmarkDropdown.getValue() ,
-                ButtonType.OK);
-        alert.showAndWait();*/
-
        //Returns bookmark object based on chosen ID in dropdown
         Bookmark choice = bookmarks.searchID(bookmarkDropdown.getValue());
 
