@@ -26,6 +26,10 @@ public class BookmarkList
 
         list[nBookmarks] = bookmark;
         nBookmarks++;
+
+        // For testing purposes, adds 3 default bookmarks
+        populateBookmarks();
+
     }
 
     //Double bookmark list size to allow for more bookmarks
@@ -81,4 +85,17 @@ public class BookmarkList
         }
         System.out.println();
     }
+
+    public void populateBookmarks(){
+        Bookmark bookmark;
+        bookmark = new Bookmark("UNB", "https://www.unb.ca/");
+        addBookmark(bookmark);
+        bookmark = new Bookmark("Google","https://www.google.ca/");
+        addBookmark(bookmark);
+        bookmark = new Bookmark("Bing","https://www.bing.ca/");
+        addBookmark(bookmark);
+    }
+
+
+
 }
