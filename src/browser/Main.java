@@ -5,10 +5,7 @@ import bookmark.BookmarkList;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
@@ -26,6 +23,9 @@ public class Main extends Application {
 
     //Creates a bookmark list populated with bookmarks
     BookmarkList bookmarks = new BookmarkList();
+
+    //Button for adding bookmark
+    Button setBookmark;
 
     //Hardcoded bookmark array
     //String[] bookmarks = {"UNB", "Google", "Bing"};
@@ -46,9 +46,14 @@ public class Main extends Application {
         bookmarkDropdown.getSelectionModel().select(0);
         bookmarkDropdown.setOnAction(this:: processBookmarkDropdown);
 
+        //Button
+        setBookmark = new Button();
+        setBookmark.setOnAction(this::processBookmarkButton);
+
+
         viewer = new WebView();
         viewer.setMinSize(1000, 750); // width then height
-        viewer.getEngine().load("http://www.unb.ca"); // the same code can be used later to change the page viewed
+        viewer.getEngine().load(bookmarks.getBookmark(0).getWebAddress()); // the same code can be used later to change the page viewed
         viewer.getEngine().getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             public void changed(ObservableValue ov, State oldState, State newState) {
                 if (newState == Worker.State.SUCCEEDED) {
@@ -58,7 +63,7 @@ public class Main extends Application {
             }
         } );
 
-        FlowPane pane = new FlowPane(addressBar, bookmarkDropdown, viewer);
+        FlowPane pane = new FlowPane(addressBar, bookmarkDropdown,setBookmark ,viewer);
         Scene scene = new Scene(pane, width, height);
         primaryStage.setTitle("Simple Web Browser");
         primaryStage.setScene(scene);
@@ -68,8 +73,15 @@ public class Main extends Application {
     public void processAddressBar(ActionEvent event)
     {
         address = addressBar.getText();
+        bookmarkDropdown.getItems().addAll(bookmarks.getIDArray());
         viewer.getEngine().load(address);
-        //System.out.println(address);
+    }
+
+    public void processBookmarkButton(ActionEvent event){
+        addressBar.getText();
+        bookmarks.addBookmark(new Bookmark("ID", addressBar.getText()));
+        bookmarks.getIDArray();
+
     }
 
     public void processBookmarkDropdown(ActionEvent e){
@@ -84,8 +96,8 @@ public class Main extends Application {
 
         address = choice.getWebAddress();
         viewer.getEngine().load(address);
-
     }
+
 
 
     public static void main(String[] args) {
