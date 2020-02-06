@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Renamed sample package">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Created BookmarkList object in Main.java and have the choice box using the ID's from this object.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookmark/BookmarkList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bookmark/BookmarkList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/browser/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/browser/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +101,12 @@
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -111,12 +118,6 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
-    </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="browser.Main" />
@@ -196,7 +197,7 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1580404207477" duration="2566000" />
-      <workItem from="1581006666487" duration="808000" />
+      <workItem from="1581006666487" duration="1104000" />
     </task>
     <task id="LOCAL-00001" summary="Added initial code to Main.java">
       <created>1580404322436</created>
@@ -240,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581007013777</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Created BookmarkList object in Main.java and have the choice box using the ID's from this object.">
+      <created>1581007514896</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1581007514896</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,41 +264,42 @@
     <MESSAGE value="Cleaned up code" />
     <MESSAGE value="Renamed sample package" />
     <MESSAGE value="Added Bookmark code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Bookmark code." />
+    <MESSAGE value="Created BookmarkList object in Main.java and have the choice box using the ID's from this object." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created BookmarkList object in Main.java and have the choice box using the ID's from this object." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580404251646">
+    <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581007808807">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741@67.27.1299.741" timestamp="1580404251646" />
+    <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741@67.27.1299.741" timestamp="1581007808807" />
     <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580406756974">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1299.741@67.27.1299.741" timestamp="1580406756974" />
-    <state x="268" y="27" width="886" height="741" key="CommitChangelistDialog2" timestamp="1581007013679">
+    <state x="268" y="27" width="886" height="741" key="CommitChangelistDialog2" timestamp="1581007514774">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="268" y="27" width="886" height="741" key="CommitChangelistDialog2/67.27.1299.741@67.27.1299.741" timestamp="1581007013679" />
+    <state x="268" y="27" width="886" height="741" key="CommitChangelistDialog2/67.27.1299.741@67.27.1299.741" timestamp="1581007514774" />
     <state x="338" y="141" width="735" height="513" key="FileChooserDialogImpl" timestamp="1580404893563">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="338" y="141" width="735" height="513" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1580404893563" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1581006767988">
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1581007783541">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1581006767988" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1581006767987">
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1581007783541" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1581007783540">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1581006767987" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1581006767987">
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1581007783540" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1581007783540">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1581006767987" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1581006767988">
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1581007783540" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1581007783541">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1581006767988" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1581007783541" />
     <state x="187" y="85" width="1039" height="622" key="MergeDialog" timestamp="1580406559546">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -303,13 +312,13 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="199" y="27" width="1024" height="741" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1580404230375" />
-    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1581007015228">
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1581007516476">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1299.741@67.27.1299.741" timestamp="1581007015228" />
-    <state x="484" y="316" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580406546385">
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1299.741@67.27.1299.741" timestamp="1581007516476" />
+    <state x="484" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581007725036">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="484" y="316" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1580406546385" />
+    <state x="484" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1581007725036" />
   </component>
 </project>

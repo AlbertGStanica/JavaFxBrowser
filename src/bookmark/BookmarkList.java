@@ -13,6 +13,9 @@ public class BookmarkList
     {
         list = new Bookmark[1];
         nBookmarks = 0;
+
+        // For testing purposes, adds 3 default bookmarks
+        populateBookmarks();
     }
 
     //Adds a bookmark to the bookmark list
@@ -26,9 +29,6 @@ public class BookmarkList
 
         list[nBookmarks] = bookmark;
         nBookmarks++;
-
-        // For testing purposes, adds 3 default bookmarks
-        populateBookmarks();
 
     }
 

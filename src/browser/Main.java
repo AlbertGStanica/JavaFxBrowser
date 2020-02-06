@@ -1,5 +1,6 @@
 package browser;
 
+import bookmark.Bookmark;
 import bookmark.BookmarkList;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -78,7 +79,11 @@ public class Main extends Application {
                 ButtonType.OK);
         alert.showAndWait();*/
 
+       //Returns bookmark object based on chosen ID in dropdown
+        Bookmark choice = bookmarks.searchID(bookmarkDropdown.getValue());
 
+        address = choice.getWebAddress();
+        viewer.getEngine().load(address);
 
     }
 
