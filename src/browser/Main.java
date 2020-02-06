@@ -48,6 +48,7 @@ public class Main extends Application {
 
         bookmarkDropdown = new ChoiceBox<>();
         bookmarkDropdown.setStyle("-fx-font: 24px \"Courrier\";");
+        //Populates dropdown with ID's of bookmarks in bookmark list
         bookmarkDropdown.getItems().addAll(bookmarks.getIDArray());
         bookmarkDropdown.getSelectionModel().select(0);
         bookmarkDropdown.setOnAction(this:: processBookmarkDropdown);
@@ -118,6 +119,7 @@ public class Main extends Application {
        //Returns bookmark object based on chosen ID in dropdown
         Bookmark choice = bookmarks.searchID(bookmarkDropdown.getValue());
 
+        //Displays web address of chosen ID
         address = choice.getWebAddress();
         viewer.getEngine().load(address);
     }
