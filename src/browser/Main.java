@@ -92,9 +92,17 @@ public class Main extends Application {
     public void processBookmarkButton(ActionEvent event){
         String id = "";
 
+        Image image = new Image(getClass().getResourceAsStream("kappa.png"));
+        ImageView imageView = new ImageView(image);
+        imageView.setPreserveRatio(true);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Add a bookmark");
         dialog.setHeaderText("Enter bookmark ID");
+        dialog.setGraphic(imageView);
+
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent())
         {
