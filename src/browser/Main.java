@@ -1,5 +1,6 @@
 package browser;
 
+import bookmark.BookmarkList;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
@@ -22,7 +23,11 @@ public class Main extends Application {
     ChoiceBox<String> bookmarkDropdown;
     WebView viewer;
 
-    String[] bookmarks = {"UNB", "Google", "Bing"};
+    //Creates a bookmark list populated with bookmarks
+    BookmarkList bookmarks = new BookmarkList();
+
+    //Hardcoded bookmark array
+    //String[] bookmarks = {"UNB", "Google", "Bing"};
     String address;
 
     @Override
@@ -36,7 +41,7 @@ public class Main extends Application {
 
         bookmarkDropdown = new ChoiceBox<>();
         bookmarkDropdown.setStyle("-fx-font: 24px \"Courrier\";");
-        bookmarkDropdown.getItems().addAll(bookmarks);
+        bookmarkDropdown.getItems().addAll(bookmarks.getIDArray());
         bookmarkDropdown.getSelectionModel().select(0);
         bookmarkDropdown.setOnAction(this:: processBookmarkDropdown);
 
@@ -68,10 +73,12 @@ public class Main extends Application {
 
     public void processBookmarkDropdown(ActionEvent e){
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+       /* Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                 "You are about to visit " + bookmarkDropdown.getValue() ,
                 ButtonType.OK);
-        alert.showAndWait();
+        alert.showAndWait();*/
+
+
 
     }
 
