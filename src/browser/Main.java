@@ -6,6 +6,8 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
@@ -31,6 +33,8 @@ public class Main extends Application {
     //String[] bookmarks = {"UNB", "Google", "Bing"};
     String address;
 
+    Image image = new Image(getClass().getResourceAsStream("bookmark.png"));
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Font mainFont = new Font("courrier", 24);
@@ -49,6 +53,13 @@ public class Main extends Application {
         //Button
         setBookmark = new Button();
         setBookmark.setOnAction(this::processBookmarkButton);
+        ImageView imageView = new ImageView(image);
+        imageView.setPreserveRatio(true);
+        imageView.setFitHeight(30);
+        imageView.setFitWidth(40);
+        setBookmark.setGraphic(imageView);
+        setBookmark.maxWidth(image.getWidth());
+        setBookmark.maxHeight(image.getHeight());
 
 
         viewer = new WebView();
