@@ -58,7 +58,7 @@ public class Main extends Application {
         ImageView imageView = new ImageView(image);
         imageView.setPreserveRatio(true);
         imageView.setFitHeight(30);
-        imageView.setFitWidth(40);
+        imageView.setFitWidth(30);
         setBookmark.setGraphic(imageView);
         setBookmark.maxWidth(image.getWidth());
         setBookmark.maxHeight(image.getHeight());
