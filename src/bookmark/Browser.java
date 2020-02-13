@@ -1,9 +1,12 @@
+/*
 package bookmark;
 
+*/
 /**
  * Browser.java
  * Authors: Ethan Garnier, Albert Stanica & Abdoalah Aboelneil
- */
+ *//*
+
 import java.util.Scanner;
 
 public class Browser {
@@ -149,4 +152,4 @@ public class Browser {
         System.out.println("\t4 - Display a Bookmark (by keyword)");
         System.out.print("Your choice? (0 to quit) ");
     }
-}
+}*/

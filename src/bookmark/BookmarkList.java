@@ -8,6 +8,8 @@ public class BookmarkList
 {
     private Bookmark[] list;
     private int nBookmarks;
+    private boolean isEqual = false;
+    private EqualIDsException eql;
 
     public BookmarkList()
     {
@@ -15,20 +17,44 @@ public class BookmarkList
         nBookmarks = 0;
 
         // For testing purposes, adds 3 default bookmarks
-        populateBookmarks();
+
+        try {
+            Bookmark bookmark;
+            bookmark = new Bookmark("UNB", "https://www.unb.ca/");
+            addBookmark(bookmark);
+            bookmark = new Bookmark("Google","https://www.google.ca/");
+            addBookmark(bookmark);
+            bookmark = new Bookmark("Bing","https://www.bing.ca/");
+            addBookmark(bookmark);
+        }catch (EqualIDsException e){
+
+        }
     }
 
     //Adds a bookmark to the bookmark list
     //If the bookmark list is full, increase the size
-    public void addBookmark(Bookmark bookmark)
+    public void addBookmark(Bookmark bookmark) throws EqualIDsException
     {
-        if (nBookmarks == list.length)
-        {
-            increaseSize();
+        if(list.length > 1){
+            for(int z = 0; z < list.length; z++){
+                if(list[z].getID().equals(bookmark.getID())){
+                    isEqual = true;
+                    // Throws Exception
+                    eql = new EqualIDsException("You can not have two bookmarks with the same name!");
+                    throw eql;
+                }
+            }
         }
+        if(!isEqual){
+            if (nBookmarks == list.length)
+            {
+                increaseSize();
+            }
 
-        list[nBookmarks] = bookmark;
-        nBookmarks++;
+            list[nBookmarks] = bookmark;
+            nBookmarks++;
+        }
+        isEqual = false;
 
     }
 
@@ -85,17 +111,6 @@ public class BookmarkList
         }
         System.out.println();
     }
-
-    public void populateBookmarks(){
-        Bookmark bookmark;
-        bookmark = new Bookmark("UNB", "https://www.unb.ca/");
-        addBookmark(bookmark);
-        bookmark = new Bookmark("Google","https://www.google.ca/");
-        addBookmark(bookmark);
-        bookmark = new Bookmark("Bing","https://www.bing.ca/");
-        addBookmark(bookmark);
-    }
-
 
 
 }

@@ -2,6 +2,7 @@ package browser;
 
 import bookmark.Bookmark;
 import bookmark.BookmarkList;
+import bookmark.EqualIDsException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
@@ -135,6 +136,7 @@ public class Main extends Application {
         dialog.setHeaderText("Enter bookmark ID");
         dialog.setGraphic(imageView);
 
+
         Optional<String> result = dialog.showAndWait();
         if (!result.isEmpty())
         {
@@ -143,8 +145,13 @@ public class Main extends Application {
             System.out.println(result);
             if (!input.equals(""))
             {
-                bookmarks.addBookmark(new Bookmark(id, addressBar.getText()));
-                bookmarkDropdown.getItems().add(id);
+                try {
+                    bookmarks.addBookmark(new Bookmark(id, addressBar.getText()));
+                    bookmarkDropdown.getItems().add(id);
+                }catch (EqualIDsException e){
+
+                }
+
             }
         }
 
