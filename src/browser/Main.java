@@ -115,12 +115,12 @@ public class Main extends Application {
         bookmarkDropdown.getItems().add(id);
     }
 
-    public void processBookmarkDropdown(ActionEvent e){
-       //Returns bookmark object based on chosen ID in dropdown
-        Bookmark choice = bookmarks.searchID(bookmarkDropdown.getValue());
+    public void processBookmarkDropdown(ActionEvent e)
+    {
+        int index = bookmarkDropdown.getSelectionModel().getSelectedIndex();
 
         //Displays web address of chosen ID
-        address = choice.getWebAddress();
+        address = bookmarks.getBookmark(index).getWebAddress();
         viewer.getEngine().load(address);
     }
 
