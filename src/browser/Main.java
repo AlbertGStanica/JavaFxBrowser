@@ -136,14 +136,18 @@ public class Main extends Application {
         dialog.setGraphic(imageView);
 
         Optional<String> result = dialog.showAndWait();
-        if (result.isPresent())
+        if (!result.isEmpty())
         {
             String input = dialog.getEditor().getText();
             id = input;
+            System.out.println(result);
+            if (!input.equals(""))
+            {
+                bookmarks.addBookmark(new Bookmark(id, addressBar.getText()));
+                bookmarkDropdown.getItems().add(id);
+            }
         }
 
-        bookmarks.addBookmark(new Bookmark(id, addressBar.getText()));
-        bookmarkDropdown.getItems().add(id);
     }
 
     public void processBookmarkDropdown(ActionEvent e)
