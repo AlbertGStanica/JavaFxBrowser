@@ -15,11 +15,16 @@ import javafx.stage.Stage;
 import javafx.beans.value.*;
 import javafx.concurrent.*;
 import javafx.concurrent.Worker.*;
+import java.net.URL;
+import java.io.IOException;
+import javafx.scene.control.Alert.AlertType;
 
 import java.util.Optional;
 
 public class Main extends Application {
     final int width = 1000, height = 800;
+
+    URL webAddr;
 
     TextField addressBar;
     ChoiceBox<String> bookmarkDropdown;
@@ -86,7 +91,33 @@ public class Main extends Application {
 
     public void processAddressBar(ActionEvent event)
     {
-        address = addressBar.getText();
+        String tempAddress = addressBar.getText();
+        try{
+            webAddr = new URL(tempAddress);
+            webAddr.openStream().close();
+
+            address = tempAddress;
+        }
+        catch (IOException e)
+        {
+            //Popup notifying user that url is invalid
+            //Make address the previous web address
+            Alert alert = new Alert(AlertType.INFORMATION,
+                    "Invalid URL" , ButtonType.OK);
+            alert.showAndWait();
+
+            e.printStackTrace();
+        }
+        catch (Exception e) //For handling MalformedURLException
+        {
+            //Make address the previous web address
+            Alert alert = new Alert(AlertType.INFORMATION,
+                    "Invalid URL" , ButtonType.OK);
+            alert.showAndWait();
+
+            e.printStackTrace();
+        }
+
         viewer.getEngine().load(address);
     }
 
