@@ -37,7 +37,7 @@ public class BookmarkList
     {
         if(list.length > 1){
             for(int z = 0; z < list.length; z++){
-                if(list[z].getID().equals(bookmark.getID())){
+                if(list[z] != null && list[z].getID().equals(bookmark.getID())){
                     isEqual = true;
                     // Throws Exception
                     eql = new EqualIDsException("You can not have two bookmarks with the same name!");

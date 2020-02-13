@@ -116,7 +116,7 @@ public class Main extends Application {
                     "Invalid URL" , ButtonType.OK);
             alert.showAndWait();
 
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         viewer.getEngine().load(address);
@@ -142,16 +142,17 @@ public class Main extends Application {
         {
             String input = dialog.getEditor().getText();
             id = input;
-            System.out.println(result);
             if (!input.equals(""))
             {
+                //Makes sure no two bookmark id's are exactly the same.
                 try {
                     bookmarks.addBookmark(new Bookmark(id, addressBar.getText()));
                     bookmarkDropdown.getItems().add(id);
                 }catch (EqualIDsException e){
-
+                    Alert alert = new Alert(AlertType.INFORMATION,
+                            "Cannot add a bookmark with ID that already exists." , ButtonType.OK);
+                    alert.showAndWait();
                 }
-
             }
         }
 
