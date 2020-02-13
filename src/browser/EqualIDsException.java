@@ -1,4 +1,4 @@
-package bookmark;
+package browser;
 
 public class EqualIDsException extends Exception
 {
