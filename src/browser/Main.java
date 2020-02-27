@@ -231,10 +231,6 @@ public class Main extends Application {
                 bookmarks.addBookmark(book);
             }
         }
-        catch (FileNotFoundException e)
-        {
-            System.out.println("");
-        }
         catch (IOException e)
         {
             System.out.println("");
@@ -246,7 +242,8 @@ public class Main extends Application {
         catch (EqualIDsException e)
         {
             System.out.print("");
-        } finally {
+        }
+        finally {
             try{
                 if (infile != null)
                     infile.close();
