@@ -5,6 +5,7 @@ import bookmark.BookmarkList;
 import bookmark.EqualIDsException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -16,9 +17,12 @@ import javafx.stage.Stage;
 import javafx.beans.value.*;
 import javafx.concurrent.*;
 import javafx.concurrent.Worker.*;
+
+import java.io.*;
 import java.net.URL;
-import java.io.IOException;
+
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.WindowEvent;
 
 import java.util.Optional;
 
@@ -46,6 +50,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Font mainFont = new Font("courrier", 24);
+        loadBookmarks();
 
         addressBar = new TextField();
         addressBar.setFont(mainFont);
@@ -73,7 +78,7 @@ public class Main extends Application {
 
         viewer = new WebView();
         viewer.setMinSize(1000, 750); // width then height
-        viewer.getEngine().load(bookmarks.getBookmark(0).getWebAddress()); // the same code can be used later to change the page viewed
+        viewer.getEngine().load("http://google.ca"); // the same code can be used later to change the page viewed
         viewer.getEngine().getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             public void changed(ObservableValue ov, State oldState, State newState) {
                 if (newState == Worker.State.SUCCEEDED) {
@@ -82,6 +87,13 @@ public class Main extends Application {
                 }
             }
         } );
+
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                saveBookmarks();
+            }
+        });
 
         FlowPane pane = new FlowPane(addressBar, bookmarkDropdown,setBookmark ,viewer);
         Scene scene = new Scene(pane, width, height);
@@ -168,6 +180,76 @@ public class Main extends Application {
         viewer.getEngine().load(address);
     }
 
+    public void saveBookmarks()
+    {
+        FileOutputStream file = null;
+        ObjectOutputStream outfile = null;
+
+        try
+        {
+            file = new FileOutputStream("bookmarks.dat");
+            outfile = new ObjectOutputStream(file);
+
+            for (int i = 0; i < bookmarks.size(); i++)
+            {
+                outfile.writeObject(bookmarks.getBookmark(i));
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println("Problem saving to file");
+        }
+        finally
+        {
+            try
+            {
+                if (outfile != null)
+                {
+                    outfile.close();
+                }
+            }
+            catch (IOException e)
+            {
+                System.out.println("Problem closing the file");
+            }
+        }
+    }
+
+    public void loadBookmarks()
+    {
+        FileInputStream file = null;
+        ObjectInputStream infile = null;
+
+        try {
+            file = new FileInputStream("bookmarks.dat");
+            infile = new ObjectInputStream(file);
+            while(true){
+                Bookmark book = (Bookmark) infile.readObject();
+                System.out.println(book);
+                bookmarks.addBookmark(book);
+            }
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("Cannot find the file");
+        }
+        catch (IOException e){
+            System.out.println("");
+        }
+        catch(ClassNotFoundException e){
+            System.out.println("Problem parsing file");
+        } catch (EqualIDsException e) {
+            System.out.print("Bookmark Already Exist");
+        } finally {
+            try{
+                if (infile != null)
+                    infile.close();
+            }
+            catch (IOException e){
+                System.out.println("Problem closing the file");
+            }
+        }
+    }
 
 
     public static void main(String[] args) {

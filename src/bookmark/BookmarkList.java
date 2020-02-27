@@ -23,7 +23,7 @@ public class BookmarkList
 
         // For testing purposes, adds 3 default bookmarks
 
-        try {
+        /*try {
             Bookmark bookmark;
             bookmark = new Bookmark("UNB", "https://www.unb.ca/");
             addBookmark(bookmark);
@@ -33,7 +33,7 @@ public class BookmarkList
             addBookmark(bookmark);
         }catch (EqualIDsException e){
 
-        }
+        }*/
     }
 
     //Adds a bookmark to the bookmark list
@@ -104,14 +104,13 @@ public class BookmarkList
         return null;
     }
 
-    public void loadBookmarks(ObjectInputStream infile)
+    /*public void loadBookmarks(ObjectInputStream infile)
     {
         try {
             while(true){
                 Bookmark book = (Bookmark) infile.readObject();
                 addBookmark(book);
             }
-
         }
         catch (FileNotFoundException e)
         {
@@ -133,10 +132,11 @@ public class BookmarkList
                 System.out.println("Problem closing the file");
             }
         }
+    }*/
 
-
-
-
+    public int size()
+    {
+        return list.length;
     }
 
     public void printList()
