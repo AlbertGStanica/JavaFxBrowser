@@ -1,10 +1,5 @@
 package bookmark;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-
 /**
  * BookmarkList.java
  * Authors: Ethan Garnier, Albert Stanica & Abdoalah Aboelneil
@@ -103,36 +98,6 @@ public class BookmarkList
         }
         return null;
     }
-
-    /*public void loadBookmarks(ObjectInputStream infile)
-    {
-        try {
-            while(true){
-                Bookmark book = (Bookmark) infile.readObject();
-                addBookmark(book);
-            }
-        }
-        catch (FileNotFoundException e)
-        {
-            System.out.println("Cannot find the file");
-        }
-        catch (IOException e){
-            System.out.println("Problem Reading the file");
-        }
-        catch(ClassNotFoundException e){
-            System.out.println("Problem parsing file");
-        } catch (EqualIDsException e) {
-            System.out.print("Bookmark Already Exist");
-        } finally {
-            try{
-                if (infile != null)
-                    infile.close();
-            }
-            catch (IOException e){
-                System.out.println("Problem closing the file");
-            }
-        }
-    }*/
 
     public int size()
     {
