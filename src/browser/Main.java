@@ -2,6 +2,7 @@ package browser;
 
 import bookmark.Bookmark;
 import bookmark.BookmarkList;
+import bookmark.EqualIDsException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
@@ -140,11 +141,19 @@ public class Main extends Application {
         {
             String input = dialog.getEditor().getText();
             id = input;
-            System.out.println(result);
             if (!input.equals(""))
             {
-                bookmarks.addBookmark(new Bookmark(id, addressBar.getText()));
-                bookmarkDropdown.getItems().add(id);
+                try{
+                    bookmarks.addBookmark(new Bookmark(id, addressBar.getText()));
+                    bookmarkDropdown.getItems().add(id);
+                }
+                catch (EqualIDsException e)
+                {
+                    Alert alert = new Alert(AlertType.INFORMATION,
+                            "Cannot add a bookmark with ID that already exists.",
+                            ButtonType.OK);
+                    alert.showAndWait();
+                }
             }
         }
 
