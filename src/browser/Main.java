@@ -36,7 +36,7 @@ public class Main extends Application {
     WebView viewer;
 
     //Creates a bookmark list populated with bookmarks
-    BookmarkList bookmarks = new BookmarkList();
+    BookmarkList bookmarks;
 
     //Button for adding bookmark
     Button setBookmark;
@@ -180,6 +180,7 @@ public class Main extends Application {
         viewer.getEngine().load(address);
     }
 
+    //Saves bookmark objects to bookmarks.dat
     public void saveBookmarks()
     {
         FileOutputStream file = null;
@@ -215,8 +216,10 @@ public class Main extends Application {
         }
     }
 
+    //Loads bookmarks from bookmarks.dat
     public void loadBookmarks()
     {
+        bookmarks = new BookmarkList();
         FileInputStream file = null;
         ObjectInputStream infile = null;
 
@@ -225,21 +228,24 @@ public class Main extends Application {
             infile = new ObjectInputStream(file);
             while(true){
                 Bookmark book = (Bookmark) infile.readObject();
-                System.out.println(book);
                 bookmarks.addBookmark(book);
             }
         }
         catch (FileNotFoundException e)
         {
-            System.out.println("Cannot find the file");
-        }
-        catch (IOException e){
             System.out.println("");
         }
-        catch(ClassNotFoundException e){
-            System.out.println("Problem parsing file");
-        } catch (EqualIDsException e) {
-            System.out.print("Bookmark Already Exist");
+        catch (IOException e)
+        {
+            System.out.println("");
+        }
+        catch(ClassNotFoundException e)
+        {
+            System.out.println("");
+        }
+        catch (EqualIDsException e)
+        {
+            System.out.print("");
         } finally {
             try{
                 if (infile != null)
