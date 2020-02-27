@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="changed bookMark Image">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookmark/BookmarkList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bookmark/BookmarkList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookmark/Browser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bookmark/Browser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/browser/EqualIDsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bookmark/EqualIDsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/browser/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/browser/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -292,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581010514529</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added loadBookmarks(ObjectInputStream infile)&#10;to the BookmarkList object that takes in a InputStream and reads the file adding the non duplicate bookmarks to the Bookmark List">
+      <created>1582822652935</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1582822652935</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +329,8 @@
     <MESSAGE value="Added bookmark with graphics" />
     <MESSAGE value="added image" />
     <MESSAGE value="changed bookMark Image" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed bookMark Image" />
+    <MESSAGE value="Added loadBookmarks(ObjectInputStream infile)&#10;to the BookmarkList object that takes in a InputStream and reads the file adding the non duplicate bookmarks to the Bookmark List" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added loadBookmarks(ObjectInputStream infile)&#10;to the BookmarkList object that takes in a InputStream and reads the file adding the non duplicate bookmarks to the Bookmark List" />
   </component>
   <component name="WindowStateProjectService">
     <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581007808807">
