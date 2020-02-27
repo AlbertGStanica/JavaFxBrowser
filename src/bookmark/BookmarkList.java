@@ -1,10 +1,12 @@
 package bookmark;
 
+import java.io.Serializable;
+
 /**
  * BookmarkList.java
  * Authors: Ethan Garnier, Albert Stanica & Abdoalah Aboelneil
  */
-public class BookmarkList
+public class BookmarkList implements Serializable
 {
     private Bookmark[] list;
     private int nBookmarks;
