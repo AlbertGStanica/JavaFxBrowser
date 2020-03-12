@@ -110,7 +110,15 @@ public class BookmarkList
         }
     }
 
-    public Bookmark searchID(String ID) {
+    public int size()
+    {
+        // size() -> return (int) amount of bookmarks
+        return list.length;
+    }
+
+    //Method has been commented out as it is no longer needed.
+
+    /*public Bookmark searchID(String ID) {
         // searchID(String id) --> Bookmark book
         // returns the bookmark at that ID
         for (int z = 0; z < list.length; z++) {
@@ -119,13 +127,7 @@ public class BookmarkList
             }
         }
         return null;
-    }
-
-    public int size()
-    {
-        // size() -> return (int) amount of bookmarks
-        return list.length;
-    }
+    }*/
 
 
     // This was uses in the terminal version
