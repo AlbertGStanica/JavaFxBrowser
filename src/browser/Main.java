@@ -234,14 +234,17 @@ public class Main extends Application {
         catch (IOException e)
         {
             System.out.println("");
+            bookmarks.createTestList();
         }
         catch(ClassNotFoundException e)
         {
             System.out.println("");
+            bookmarks.createTestList();
         }
         catch (EqualIDsException e)
         {
             System.out.print("");
+            bookmarks.createTestList();
         }
         finally {
             try{

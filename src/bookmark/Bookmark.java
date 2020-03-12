@@ -1,11 +1,9 @@
 package bookmark;
-
-import java.io.Serializable;
-
 /**
  * Bookmark.java
  * Authors: Ethan Garnier, Albert Stanica & Abdoalah Aboelneil
  */
+import java.io.Serializable;
 public class Bookmark implements Serializable
 {
     //Creating ID and WebAddress as Strings
