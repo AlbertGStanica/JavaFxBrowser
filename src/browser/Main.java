@@ -111,11 +111,13 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    //
+    //Method that handles text input in address bar.
     public void processAddressBar(ActionEvent event)
     {
         String tempAddress = addressBar.getText();
+
         try{
+            //Attempts to open the entered address in the web view
             webAddr = new URL(tempAddress);
             webAddr.openStream().close();
 
@@ -131,13 +133,16 @@ public class Main extends Application {
 
             e.printStackTrace();
         }
+
         viewer.getEngine().load(address);
     }
 
+    //Method that processes the add bookmark button
     public void processBookmarkButton(ActionEvent event){
-        String id = "";
+        String id;
 
-        Image image = new Image(getClass().getResourceAsStream("kappa.png"));
+        //Sets image for bookmark popup
+        image = new Image(getClass().getResourceAsStream("kappa.png"));
         ImageView imageView = new ImageView(image);
         imageView.setPreserveRatio(true);
         imageView.setFitHeight(100);
@@ -155,6 +160,8 @@ public class Main extends Application {
             id = input;
             if (!input.equals(""))
             {
+                //Adds the entered ID along with current web address into bookmark list.
+                //If the entered ID already exists in the bookmark list, throw an exception.
                 try{
                     bookmarks.addBookmark(new Bookmark(id, addressBar.getText()));
                     bookmarkDropdown.getItems().add(id);
@@ -171,6 +178,7 @@ public class Main extends Application {
 
     }
 
+    //Method for process bookmark choice box object.
     public void processBookmarkDropdown(ActionEvent e)
     {
         int index = bookmarkDropdown.getSelectionModel().getSelectedIndex();
@@ -180,7 +188,7 @@ public class Main extends Application {
         viewer.getEngine().load(address);
     }
 
-    //Saves bookmark objects to bookmarks.dat
+    //Method to save the current bookmarks to bookmarks.dat file on close
     public void saveBookmarks()
     {
         FileOutputStream file = null;
@@ -216,7 +224,8 @@ public class Main extends Application {
         }
     }
 
-    //Loads bookmarks from bookmarks.dat
+    //Method to load saved bookmarks from bookmarks.dat.\
+    //If bookmarks.dat does not exist, populate bookmark list with test values.
     public void loadBookmarks()
     {
         bookmarks = new BookmarkList();
@@ -234,17 +243,14 @@ public class Main extends Application {
         }
         catch (IOException e)
         {
-            System.out.println("");
             problem = true;
         }
         catch(ClassNotFoundException e)
         {
-            System.out.println("");
             problem = true;
         }
         catch (EqualIDsException e)
         {
-            System.out.print("");
             problem = true;
         }
         finally {
@@ -256,6 +262,7 @@ public class Main extends Application {
                 System.out.println("Problem closing the file");
             }
 
+            //If an error occurred, simply populate bookmark list with test values.
             if (problem) bookmarks.createTestList();
         }
     }
