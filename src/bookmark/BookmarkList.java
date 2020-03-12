@@ -15,20 +15,6 @@ public class BookmarkList
     {
         list = new Bookmark[1];
         nBookmarks = 0;
-
-        // For testing purposes, adds 3 default bookmarks
-
-        /*try {
-            Bookmark bookmark;
-            bookmark = new Bookmark("UNB", "https://www.unb.ca/");
-            addBookmark(bookmark);
-            bookmark = new Bookmark("Google","https://www.google.ca/");
-            addBookmark(bookmark);
-            bookmark = new Bookmark("Bing","https://www.bing.ca/");
-            addBookmark(bookmark);
-        }catch (EqualIDsException e){
-
-        }*/
     }
 
     //Adds a bookmark to the bookmark list
@@ -88,6 +74,23 @@ public class BookmarkList
         }
 
         return ids;
+    }
+
+    public void createTestList()
+    {
+        try
+        {
+            Bookmark bookmark;
+            bookmark = new Bookmark("UNB", "https://www.unb.ca/");
+            addBookmark(bookmark);
+            bookmark = new Bookmark("Google","https://www.google.ca/");
+            addBookmark(bookmark);
+            bookmark = new Bookmark("Bing","https://www.bing.ca/");
+            addBookmark(bookmark);
+        }catch (EqualIDsException e)
+        {
+
+        }
     }
 
     public Bookmark searchID(String ID) {
