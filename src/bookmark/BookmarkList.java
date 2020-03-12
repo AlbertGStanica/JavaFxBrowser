@@ -47,7 +47,7 @@ public class BookmarkList
     //Double bookmark list size to allow for more bookmarks
     private void increaseSize()
     {
-        Bookmark[] temp = new Bookmark[list.length * 2];
+        Bookmark[] temp = new Bookmark[list.length + 1];
         for (int i = 0; i < list.length; i++)
         {
             temp[i] = list[i];

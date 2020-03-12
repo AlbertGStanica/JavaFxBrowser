@@ -236,19 +236,16 @@ public class Main extends Application {
         {
             System.out.println("");
             problem = true;
-            //bookmarks.createTestList();
         }
         catch(ClassNotFoundException e)
         {
             System.out.println("");
             problem = true;
-            //bookmarks.createTestList();
         }
         catch (EqualIDsException e)
         {
             System.out.print("");
             problem = true;
-            //bookmarks.createTestList();
         }
         finally {
             try{
