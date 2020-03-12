@@ -20,6 +20,11 @@ public class BookmarkList
     //Adds a bookmark to the bookmark list
     //If the bookmark list is full, increase the size
     public void addBookmark(Bookmark bookmark) throws EqualIDsException
+    // addBookmark(Bookmark) -> Void
+    // addBookmark method adds a a bookmark to the list
+    // It makes sure that there are no duplicates
+    // by comparing the Coin IDs and increases the size
+    // of the list by one before adding the new** bookmark
     {
         if(list.length > 1){
             for(int z = 0; z < list.length; z++){
@@ -46,6 +51,9 @@ public class BookmarkList
 
     //Double bookmark list size to allow for more bookmarks
     private void increaseSize()
+    // increaseSize() -> Void
+    // Increases the size of the Bookmark list tl a larger one
+
     {
         Bookmark[] temp = new Bookmark[list.length + 1];
         for (int i = 0; i < list.length; i++)
@@ -57,6 +65,7 @@ public class BookmarkList
     }
 
     public Bookmark getBookmark(int index){
+        // getBookmark(int index ) - > Index of Bookmark
         if(index < nBookmarks)
         {
             return list[index];
@@ -67,6 +76,7 @@ public class BookmarkList
 
     public String[] getIDArray()
     {
+        // Returns the array of all ids
         String[] ids = new String[nBookmarks];
         for (int i = 0; i < nBookmarks; i++)
         {
@@ -78,6 +88,7 @@ public class BookmarkList
 
     public void createTestList()
     {
+        // Creates the default test list if there is no .dat
         try
         {
             Bookmark bookmark;
@@ -94,6 +105,7 @@ public class BookmarkList
     }
 
     public Bookmark searchID(String ID) {
+        // searchID(String id) returns the bookmark at that ID
         for (int z = 0; z < list.length; z++) {
             if (list[z].getID().equals(ID)) {
                 return getBookmark(z);
