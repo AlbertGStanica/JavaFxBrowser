@@ -34,6 +34,11 @@ public class BookmarkList
     //Adds a bookmark to the bookmark list
     //If the bookmark list is full, increase the size
     public void addBookmark(Bookmark bookmark) throws EqualIDsException
+    // addBookmark(Bookmark) -> Void
+    // addBookmark method adds a a bookmark to the list
+    // It makes sure that there are no duplicates
+    // by comparing the Coin IDs and increases the size
+    // of the list by one before adding the new** bookmark
     {
         if(list.length > 1){
             for(int z = 0; z < list.length; z++){
@@ -60,6 +65,8 @@ public class BookmarkList
 
     //Double bookmark list size to allow for more bookmarks
     private void increaseSize()
+    // increaseSize() -> Void
+
     {
         Bookmark[] temp = new Bookmark[list.length * 2];
         for (int i = 0; i < list.length; i++)
