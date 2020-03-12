@@ -1,7 +1,4 @@
 package bookmark;
-
-import java.util.LinkedHashSet;
-
 /**
  * BookmarkList.java
  * Authors: Ethan Garnier, Albert Stanica & Abdoalah Aboelneil

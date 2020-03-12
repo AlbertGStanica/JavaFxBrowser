@@ -18,16 +18,16 @@ public class Bookmark implements Serializable
 
     }
 
+    //Returns the bookmark's webaddress
     public String getWebAddress(){
         return WebAddress;
     }
 
+    //Returned the bookmark's ID.
     public String getID()
     {
         return ID;
     }
-
-
 
     //Creating a toString method that prints the bookmark list
     public String toString()
