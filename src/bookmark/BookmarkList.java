@@ -1,5 +1,7 @@
 package bookmark;
 
+import java.util.LinkedHashSet;
+
 /**
  * BookmarkList.java
  * Authors: Ethan Garnier, Albert Stanica & Abdoalah Aboelneil
@@ -32,7 +34,7 @@ public class BookmarkList
                     isEqual = true;
                     // Throws Exception
                     eql = new EqualIDsException("You can not have two bookmarks with the same name!");
-                    throw eql;
+                    //throw eql;
                 }
             }
         }
@@ -66,6 +68,7 @@ public class BookmarkList
 
     public Bookmark getBookmark(int index){
         // getBookmark(int index ) - > Index of Bookmark
+        // Returns the Index of a bookmark
         if(index < nBookmarks)
         {
             return list[index];
@@ -77,6 +80,7 @@ public class BookmarkList
     public String[] getIDArray()
     {
         // Returns the array of all ids
+        // returns as a String[] list
         String[] ids = new String[nBookmarks];
         for (int i = 0; i < nBookmarks; i++)
         {
@@ -89,6 +93,7 @@ public class BookmarkList
     public void createTestList()
     {
         // Creates the default test list if there is no .dat
+        // file available
         try
         {
             Bookmark bookmark;
@@ -100,12 +105,14 @@ public class BookmarkList
             addBookmark(bookmark);
         }catch (EqualIDsException e)
         {
+            e.printStackTrace();
 
         }
     }
 
     public Bookmark searchID(String ID) {
-        // searchID(String id) returns the bookmark at that ID
+        // searchID(String id) --> Bookmark book
+        // returns the bookmark at that ID
         for (int z = 0; z < list.length; z++) {
             if (list[z].getID().equals(ID)) {
                 return getBookmark(z);
@@ -116,11 +123,16 @@ public class BookmarkList
 
     public int size()
     {
+        // size() -> return (int) amount of bookmarks
         return list.length;
     }
 
-    public void printList()
+
+    // This was uses in the terminal version
+    // It is no longer needed.
+    /*public void printList()
     {
+        // Print out the bookmark list
         for (int i = 0; i < list.length; i++)
         {
             //If the object is not null (bookmark exists), print the bookmark
@@ -130,7 +142,7 @@ public class BookmarkList
             }
         }
         System.out.println();
-    }
+    }*/
 
 
 }
