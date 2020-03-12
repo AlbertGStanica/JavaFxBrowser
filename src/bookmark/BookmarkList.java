@@ -65,7 +65,7 @@ public class BookmarkList
     }
 
     public Bookmark getBookmark(int index){
-        // getBookmark(int index ) - >
+        // getBookmark(int index ) - > Index of Bookmark
         if(index < nBookmarks)
         {
             return list[index];
@@ -76,6 +76,7 @@ public class BookmarkList
 
     public String[] getIDArray()
     {
+        // Returns the array of all ids
         String[] ids = new String[nBookmarks];
         for (int i = 0; i < nBookmarks; i++)
         {
@@ -87,6 +88,7 @@ public class BookmarkList
 
     public void createTestList()
     {
+        // Creates the default test list if there is no .dat
         try
         {
             Bookmark bookmark;
@@ -103,6 +105,7 @@ public class BookmarkList
     }
 
     public Bookmark searchID(String ID) {
+        // searchID(String id) returns the bookmark at that ID
         for (int z = 0; z < list.length; z++) {
             if (list[z].getID().equals(ID)) {
                 return getBookmark(z);
