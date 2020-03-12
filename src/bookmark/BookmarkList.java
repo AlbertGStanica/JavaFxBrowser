@@ -52,6 +52,7 @@ public class BookmarkList
     //Double bookmark list size to allow for more bookmarks
     private void increaseSize()
     // increaseSize() -> Void
+    // Increases the size of the Bookmark list tl a larger one
 
     {
         Bookmark[] temp = new Bookmark[list.length * 2];
@@ -64,6 +65,7 @@ public class BookmarkList
     }
 
     public Bookmark getBookmark(int index){
+        // getBookmark(int index ) - >
         if(index < nBookmarks)
         {
             return list[index];
