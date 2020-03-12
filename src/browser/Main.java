@@ -29,34 +29,37 @@ import java.util.Optional;
 public class Main extends Application {
     final int width = 1000, height = 800;
 
-    URL webAddr;
-
+    //Creating the JavaFx objects to populate stage
     TextField addressBar;
     ChoiceBox<String> bookmarkDropdown;
     WebView viewer;
-
-    //Creates a bookmark list populated with bookmarks
-    BookmarkList bookmarks;
-
-    //Button for adding bookmark
     Button setBookmark;
 
-    //Hardcoded bookmark array
-    //String[] bookmarks = {"UNB", "Google", "Bing"};
-    String address;
+    //Creates an empty bookmark list object
+    BookmarkList bookmarks;
 
-    Image image = new Image(getClass().getResourceAsStream("bookmark.png"));
+    String address;
+    URL webAddr;
+
+    Image image;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Font mainFont = new Font("courrier", 24);
+
+        //Load bookmarks from bookmarks.dat.
+        //Bookmarks from previous sessions are stored in this file.
+        //If bookmarks.dat does not exist, test bookmarks are populated.
         loadBookmarks();
 
+        //Create a textField object that functions as the address bar.
         addressBar = new TextField();
         addressBar.setFont(mainFont);
         addressBar.setMinWidth(width-200);
         addressBar.setOnAction(this::processAddressBar);
 
+        //Create a ChoiceBox objcet that serves as drop-down list
+        //populated with bookmarks.
         bookmarkDropdown = new ChoiceBox<>();
         bookmarkDropdown.setStyle("-fx-font: 24px \"Courrier\";");
         //Populates dropdown with ID's of bookmarks in bookmark list
@@ -64,9 +67,12 @@ public class Main extends Application {
         bookmarkDropdown.getSelectionModel().select(0);
         bookmarkDropdown.setOnAction(this:: processBookmarkDropdown);
 
-        //Button
+        //Creates a button object that when activated allows the user to
+        //create a new bookmark.
         setBookmark = new Button();
         setBookmark.setOnAction(this::processBookmarkButton);
+        //Set the image for the button
+        image = new Image(getClass().getResourceAsStream("bookmark.png"));
         ImageView imageView = new ImageView(image);
         imageView.setPreserveRatio(true);
         imageView.setFitHeight(30);
@@ -75,7 +81,8 @@ public class Main extends Application {
         setBookmark.maxWidth(image.getWidth());
         setBookmark.maxHeight(image.getHeight());
 
-
+        //Creates a webview object which serves to display web content via url
+        //entered in address bar. Default home page is set to http://google.ca.
         viewer = new WebView();
         viewer.setMinSize(1000, 750); // width then height
         viewer.getEngine().load("http://google.ca"); // the same code can be used later to change the page viewed
@@ -88,6 +95,7 @@ public class Main extends Application {
             }
         } );
 
+        //Handles what happens when user closes out of browser window.
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
@@ -95,6 +103,7 @@ public class Main extends Application {
             }
         });
 
+        //Creates main JavaFx pane and adds to primary stage
         FlowPane pane = new FlowPane(addressBar, bookmarkDropdown,setBookmark ,viewer);
         Scene scene = new Scene(pane, width, height);
         primaryStage.setTitle("Simple Web Browser");
@@ -102,6 +111,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    //
     public void processAddressBar(ActionEvent event)
     {
         String tempAddress = addressBar.getText();
@@ -113,24 +123,14 @@ public class Main extends Application {
         }
         catch (IOException e)
         {
-            //Popup notifying user that url is invalid
-            //Make address the previous web address
+            //Popup notifying user that url is invalid.
+            //Make address the previous web address.
             Alert alert = new Alert(AlertType.INFORMATION,
                     "Invalid URL" , ButtonType.OK);
             alert.showAndWait();
 
             e.printStackTrace();
         }
-        catch (Exception e) //For handling MalformedURLException
-        {
-            //Make address the previous web address
-            Alert alert = new Alert(AlertType.INFORMATION,
-                    "Invalid URL" , ButtonType.OK);
-            alert.showAndWait();
-
-            e.printStackTrace();
-        }
-
         viewer.getEngine().load(address);
     }
 
@@ -222,6 +222,7 @@ public class Main extends Application {
         bookmarks = new BookmarkList();
         FileInputStream file = null;
         ObjectInputStream infile = null;
+        boolean problem = false;
 
         try {
             file = new FileInputStream("bookmarks.dat");
@@ -234,17 +235,20 @@ public class Main extends Application {
         catch (IOException e)
         {
             System.out.println("");
-            bookmarks.createTestList();
+            problem = true;
+            //bookmarks.createTestList();
         }
         catch(ClassNotFoundException e)
         {
             System.out.println("");
-            bookmarks.createTestList();
+            problem = true;
+            //bookmarks.createTestList();
         }
         catch (EqualIDsException e)
         {
             System.out.print("");
-            bookmarks.createTestList();
+            problem = true;
+            //bookmarks.createTestList();
         }
         finally {
             try{
@@ -254,6 +258,8 @@ public class Main extends Application {
             catch (IOException e){
                 System.out.println("Problem closing the file");
             }
+
+            if (problem) bookmarks.createTestList();
         }
     }
 
